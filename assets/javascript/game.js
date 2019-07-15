@@ -167,8 +167,8 @@ function atackSettup(){
     $("#vs").html('<h3 id="atkBtn" class="bg-dark col-md-5 text-center">Attack</h3>');
     atack();
 }
-function atack(heroChoice){
-    console.log(heroChoice);
+function atack(){
+    console.log(heroChoice+'VS'+enemyChoice);
         
        /* var p1 = $("#players").find("div").each(function(){ 
             p1.filter(":visible");
