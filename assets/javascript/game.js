@@ -1,26 +1,37 @@
 //===================global-variables====================
 var enemyChoice=[];
 var heroChoice=[];
-var playersOption = [ch1,ch2,ch3];
+var deadEnemies=[];
+var p1CurrentHp;
+var p1CurrentAttck;
+var p1CounterAttack;
+var p2CurrentHp;
+var p2CurrentAttck;
+var p2CounterAttack;
+
 
  var ch1={
+    name: "Hero1", 
     hp:301,
     attckPower:71,
     counterAttck:Math.floor(Math.random()*2)
  };
  var ch2={
+    name: "Hero2",
     hp:302,
     attckPower:72,
     counterAttck:Math.floor(Math.random()*2)
  };
 
  var ch3={
+    name: "Hero3",
     hp:303,
     attckPower:73,
     counterAttck:Math.floor(Math.random()*2)
  };
 
  var ch4={
+    name: "Hero4",
     hp:304,
     attckPower:74,
     counterAttck:Math.floor(Math.random()*2)
@@ -32,21 +43,25 @@ var playersOption = [ch1,ch2,ch3];
 //===Set-up Players===
 function displayPlayers(){
     //==Hero1==
-    $("#ch1").append('<p id = "hp" > HP: '+ch1.hp+'<p>'),
-    $("#ch1").append('<p id = "ch1atk"> Attack: '+ch1.attckPower+'<p>'),
-    $("#ch1").append('<p id = "ch1cnt"> Couter attack: 50%<p>')
+    $("#ch1").append('<h1> '+ch1.name+'</h1>');
+    $("#ch1").append('<p id = "hp" > HP: '+ch1.hp+'</p>');
+    $("#ch1").append('<p id = "ch1atk"> Attack: '+ch1.attckPower+'</p>');
+    $("#ch1").append('<p id = "ch1cnt"> Couter attack: 50%<p>');
     //==Hero2==
-    $("#ch2").append('<p id = "hp" > HP: '+ch2.hp+'<p>'),
-    $("#ch2").append('<p id = "ch2atk"> Attack: '+ch2.attckPower+'<p>'),
-    $("#ch2").append('<p id = "ch2cnt"> Couter attack: 50%</h5>')
-    //==He"
-    $("#ch3").append('<p id = "hp" > HP: '+ch3.hp+'<p>'),
-    $("#ch3").append('<p id = "ch3atk"> Attack: '+ch3.attckPower+'<p>'),
-    $("#ch3").append('<p id = "ch3cnt"> Couter attack: 50%</h5>')
-    //==He"
-    $("#ch4").append('<p id = "hp" > HP: '+ch4.hp+'<p>'),
-    $("#ch4").append('<p id = "ch4atk"> Attack: '+ch4.attckPower+'<p>'),
-    $("#ch4").append('<p id = "ch4cnt"> Couter attack: 50%<p>')   
+    $("#ch2").append('<h1> '+ch2.name+'</h1>');
+    $("#ch2").append('<p id = "hp" > HP: '+ch2.hp+'</p>');
+    $("#ch2").append('<p id = "ch2atk"> Attack: '+ch2.attckPower+'</p>');
+    $("#ch2").append('<p id = "ch2cnt"> Couter attack: 50%</h5>');
+    //==Hero3==
+    $("#ch3").append('<h1> '+ch3.name+'</h1>');
+    $("#ch3").append('<p id = "hp" > HP: '+ch3.hp+'</p>');
+    $("#ch3").append('<p id = "ch3atk"> Attack: '+ch3.attckPower+'</p>');
+    $("#ch3").append('<p id = "ch3cnt"> Couter attack: 50%</h5>');
+    //==Hero4==
+    $("#ch4").append('<h1> '+ch4.name+'</h1>');
+    $("#ch4").append('<p id = "hp" > HP: '+ch4.hp+'</p>');
+    $("#ch4").append('<p id = "ch4atk"> Attack: '+ch4.attckPower+'</p>');
+    $("#ch4").append('<p id = "ch4cnt"> Couter attack: 50%</p>');   
 }
 //select Player
 function selectPlayer(){
@@ -114,31 +129,31 @@ function selectPlayer(){
 
 //select a enemy 
 function selectEnemy(){
-    var iDs = [];
-    $("#enemies").find("div").each(function(){ iDs.push(this.id); });
-    for(var i = 0;i<iDs.length;i++){
-        iDs[i] = "#"+iDs[i];
+    var enemyIds = [];
+    $("#enemies").find("div").each(function(){ enemyIds.push(this.id); });
+    for(var i = 0;i<enemyIds.length;i++){
+        enemyIds[i] = "#"+enemyIds[i];
     };
     
-    $(iDs[0]).on('click',function(){
-        enemyChoice.push(iDs[0]);
-        $(iDs[1]).hide('slow');
-        $(iDs[2]).hide('slow');
+    $(enemyIds[0]).on('click',function(){
+        enemyChoice.push(enemyIds[0]);
+        $(enemyIds[1]).hide('slow');
+        $(enemyIds[2]).hide('slow');
         atackSettup();
         return enemyChoice;
     });
-    $(iDs[1]).on('click',function(){
-        enemyChoice.push(iDs[1]);
-        $(iDs[0]).hide('slow');
-        $(iDs[2]).hide('slow');
+    $(enemyIds[1]).on('click',function(){
+        enemyChoice.push(enemyIds[1]);
+        $(enemyIds[0]).hide('slow');
+        $(enemyIds[2]).hide('slow');
         //attack?
         atackSettup();
         return enemyChoice;    
     });
-    $(iDs[2]).on('click',function(){
-        enemyChoice.push(iDs[2]);
-        $(iDs[0]).hide('slow');
-        $(iDs[1]).hide('slow');
+    $(enemyIds[2]).on('click',function(){
+        enemyChoice.push(enemyIds[2]);
+        $(enemyIds[0]).hide('slow');
+        $(enemyIds[1]).hide('slow');
         //attack?
         atackSettup();
         return enemyChoice;
@@ -152,15 +167,12 @@ function battleSetUp(){
     $("#ch4").off();   
 }
 function atackSettup(){
-    $("#vs").html('<h3 id="atkBtn" class="bg-dark col-md-5 text-center">Attack</h3>');
+    $("#vs").html('<h3 id="atkBtn" type="button" class="btn btn-secondary text-dark">Attack</h3>');
     battleSetUp();
     atack();
 }
 function atack(){
     //get hero choice and assign atributes
-    var p1CurrentHp;
-    var p1CurrentAttck;
-    var p1CounterAttack;
     var p1 = heroChoice[0];//.slice(1);
     console.log(p1);
     if(p1 === "#ch1"){
@@ -184,16 +196,9 @@ function atack(){
         p1CurrentHp = ch4.hp;
         p1CounterAttack = ch4.counterAttck;
     }
-    console.log(p1CurrentAttck);
-    console.log(p1CurrentHp);
-    console.log(p1CounterAttack);
-    console.log(p1);
     //get enemy choice and assign attributes
-    var p2CurrentHp;
-    var p2CurrentAttck;
-    var p2CounterAttack;
+    
     var p2 = enemyChoice[0];//.slice(1);
-    console.log(p2);
     if(p2 === "#ch1"){
         p2 = ch1;
         p2CurrentAttck = ch1.attckPower;
@@ -218,21 +223,46 @@ function atack(){
     console.log(p2CurrentAttck);
     console.log(p2CurrentHp);
     console.log(p2CounterAttack);
-    console.log(p2.hp+1);
-
+    console.log(p2.hp);
+    
+    
     $("#atkBtn").on('click',function(){
+        //herochoise or enemy choise is the element id wrapper for status 
+       
         console.log("clicked");
-        var atk_result = p1CurrentAttck - p2CurrentHp;
-        console.log("result of the atack"+atk_result);
-        p2.hp = atk_result;
-        $(enemyChoice[0]).children("hp").text(atk_result);
-        $(enemyChoice[0]).find("hp").each(function(){ this.html(atk_result) });
+        p2.hp = p2.hp-p1.attckPower;
+        console.log("result of the atack"+p2.hp);
+        $(enemyChoice[0]).html("");
+        $(enemyChoice[0]).append("<h1>"+p2.name+" </h1>");
+        $(enemyChoice[0]).append("<p>HP: "+p2.hp+"</p>");
+        $(enemyChoice[0]).append("<p>Attack Power: "+p2.attckPower+"</p>");
+        $(enemyChoice[0]).append('<p> Couter attack: 50%</h5>');
+        //for key in object add to hero status 
+        
+        console.log("loop startef");
+        
+        
+        if(p2.hp <= 0 ){ 
+            
+            $(enemyChoice[0]).html("");
+            $(enemyChoice[0]).append("<h1>"+p2.name+" </h1>");
+            $(enemyChoice[0]).append("<p>dead</p>");
+            deadEnemies.push(enemyChoice[0]);
+            console.log(" the dead enemies"+deadEnemies); 
+            
+        }
+        
         console.log("updated"+p2.hp);
         
-
+    
+      
         //todo finish the battle results
+        
+          
     })   
+
 }
+
 //=========  Start Game  ===========
 // game condition needs to be a while statement 
 displayPlayers();
@@ -242,3 +272,6 @@ $("#startGame").on('click',function(){
     $("#startGame").hide('slow');  
 })
 
+//to do function post battle 
+//todo status bar 
+//incorp sounds
