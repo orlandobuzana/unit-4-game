@@ -91,6 +91,7 @@ function selectPlayer(){
         $(heroIds[3]).appendTo('#enemies');
         //add vs and show potential enemies
         $("#vs").html('<h3>Choose your enemy</h3>');
+        $("#gameStatus").hide('slow');
         battleSetUp(); 
         selectEnemy();
         return heroChoice; 
@@ -104,6 +105,7 @@ function selectPlayer(){
         $(heroIds[3]).appendTo('#enemies');
         //add vs and show potential enemies
         $("#vs").html('<h3>Choose your enemy</h3>');
+        $("#gameStatus").hide('slow');
         battleSetUp(); 
         selectEnemy(); 
         return heroChoice;
@@ -118,6 +120,7 @@ function selectPlayer(){
         $(heroIds[3]).appendTo('#enemies');
         //add vs and show potential enemies
         $("#vs").html('<h3>Choose your enemy</h3>');
+        $("#gameStatus").hide('slow');
         battleSetUp(); 
         selectEnemy(); 
         return heroChoice;
@@ -131,6 +134,7 @@ function selectPlayer(){
         $(heroIds[2]).appendTo('#enemies');
         //add vs and show potential enemies
         $("#vs").html('<h3>Choose your enemy</h3>');
+        $("#gameStatus").hide('slow');
         battleSetUp(); 
         selectEnemy(); 
         return heroChoice;
@@ -192,17 +196,19 @@ function postBattleSetUp(){
     for(var i = 0;i < remainingEnemies.length;i++){
         $(remainingEnemies[i]).show('slow');
     }
-console.log("this is the post"+remainingEnemies);
+
 enemyChoice = [];
 resetStatus();   
 selectEnemy();     
 }
+
 //flush temp var
 function resetStatus(){
     p2CurrentHp = 0;
     p2CounterAttack =0;
     p2CurrentAttck = 0;
 }
+
 //show btn for attack
 function attackSettup(){
     $("#vs").html('<h3 id="atkBtn" type="button" class="btn btn-secondary text-dark">Attack</h3>');
@@ -210,6 +216,9 @@ function attackSettup(){
     atack();
 }
 function atack(){
+    if(deadEnemies.length == 3){
+        gameOver();
+    }else{
     //get hero choice and assign atributes
     var p1 = heroChoice[0];//.slice(1);
     console.log(p1);
@@ -266,7 +275,7 @@ function atack(){
         $(enemyChoice[0]).append("<p>HP: "+p2.hp+"</p>");
         $(enemyChoice[0]).append("<p>Attack Power: "+p2.attckPower+"</p>");
         $(enemyChoice[0]).append('<p> Couter attack: 50%</h5>');
-        
+
         //if hp =<0 p2 is defeted
         if(p2.hp <= 0 ){ 
             
@@ -278,29 +287,31 @@ function atack(){
             postBattleSetUp();
             
         }
-        
-        
-        
-    
-      
-        //todo finish the other aspects of the battle 
-        
-          
+
+        //todo finish the other aspects of the battle       
     })   
+    }
+
+}
+//gameover
+function gameOver(){
+    console.log("Game Over");
+    resetStatus();
 
 }
 
 //=========  Start Game  ===========
-// game condition needs to be a while statement 
-displayPlayers();
-
+// game condition needs to be a while statement sta
+startGame();
+function startGame(){
 $("#startGame").on('click',function(){
+    displayPlayers();
     
     selectPlayer();
 
     $("#startGame").hide('slow');  
 })
-
+}
 //to do function post battle 
 //todo status bar 
 //incorp sounds
