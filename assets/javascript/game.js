@@ -11,27 +11,27 @@ var p2CounterAttack;
 
 
  var ch1={
-    name: "Hero1", 
+    name: "Luke", 
     hp:301,
     attckPower:71,
     counterAttck:Math.floor(Math.random()*2)
  };
  var ch2={
-    name: "Hero2",
+    name: "Yoda",
     hp:302,
     attckPower:72,
     counterAttck:Math.floor(Math.random()*2)
  };
 
  var ch3={
-    name: "Hero3",
+    name: "Darthvader",
     hp:303,
     attckPower:73,
     counterAttck:Math.floor(Math.random()*2)
  };
 
  var ch4={
-    name: "Hero4",
+    name: "Palpatine",
     hp:304,
     attckPower:74,
     counterAttck:Math.floor(Math.random()*2)
