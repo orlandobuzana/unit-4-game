@@ -6,6 +6,11 @@ body{
 .wraper{
     max-width: 960px;
 }
+header{
+    background-image: url("https://www.decluttr.com/wp-content/uploads/2018/06/star-wars.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 #ch1{
     background-image: url("http://www.facetheforce.today/luke/200");
     background-repeat: no-repeat;

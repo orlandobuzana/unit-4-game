@@ -137,6 +137,7 @@ function selectPlayer(){
 
 //select a enemy 
 function selectEnemy(){
+    
     var enemyIds = [];
     $("#enemies").find("div").each(function(){ enemyIds.push(this.id); });
     for(var i = 0;i<enemyIds.length;i++){
@@ -189,17 +190,19 @@ function postBattleSetUp(){       //<|============================currrently wor
     for(var i = 0;i < remainingEnemies.length;i++){
         $(remainingEnemies[i]).show('slow');
     }
+console.log("this is the post"+remainingEnemies);
 enemyChoice = [];
 resetStatus();   
 selectEnemy();     
 
 }
+//flush temp var
 function resetStatus(){
     p2CurrentHp = 0;
     p2CounterAttack =0;
     p2CurrentAttck = 0;
 }
-
+//show btn for attack
 function atackSettup(){
     $("#vs").html('<h3 id="atkBtn" type="button" class="btn btn-secondary text-dark">Attack</h3>');
     battleSetUp();
