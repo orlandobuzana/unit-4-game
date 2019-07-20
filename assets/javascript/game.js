@@ -280,7 +280,7 @@ function atack(){
         if(p2.hp <= 0 ){ 
             
             $(enemyChoice[0]).html("");
-            $(enemyChoice[0]).append("<h1>"+p2.name+" </h1>");
+            $(enemyChoice[0]).append("<h2>"+p2.name+" </h2>");
             $(enemyChoice[0]).append("<p>dead</p>");
             deadEnemies.push(enemyChoice[0]);
             console.log(" the dead enemies"+deadEnemies); 
