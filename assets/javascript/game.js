@@ -24,7 +24,7 @@ var p2CounterAttack;
  };
 
  var ch3={
-    name: "Darthvader",
+    name: "Vader",
     hp:303,
     attckPower:73,
     counterAttck:Math.floor(Math.random()*2)
@@ -66,7 +66,7 @@ function displayPlayers(){
     ];
     //==Hero4==
     var ch4Display = [
-    $("#ch4").append('<h1> '+ch4.name+'</h1>'),
+    $("#ch4").append('<h2> '+ch4.name+'</h2>'),
     $("#ch4").append('<p id = "hp" > HP: '+ch4.hp+'</p>'),
     $("#ch4").append('<p id = "ch4atk"> Attack: '+ch4.attckPower+'</p>'),
     $("#ch4").append('<p id = "ch4cnt"> Couter attack: 50%</p>')

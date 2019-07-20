@@ -1,5 +1,5 @@
 body{
-    background-image: url(https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80);
+    background-image: url('https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80');
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -7,27 +7,27 @@ body{
     max-width: 960px;
 }
 header{
-    background-image: url(https://www.decluttr.com/wp-content/uploads/2018/06/star-wars.png);
+    background-image: url('https://www.decluttr.com/wp-content/uploads/2018/06/star-wars.png');
     background-repeat: no-repeat;
     background-size: 100%;
 }
 #ch1{
-    background-image: url(http://www.facetheforce.today/luke/200);
+    background-image: url('http://www.facetheforce.today/luke/200');
     background-repeat: no-repeat;
     background-size: auto;
 }
 #ch2{
-    background-image: url(http://www.facetheforce.today/yoda/200);
+    background-image: url('http://www.facetheforce.today/yoda/200');
     background-repeat: no-repeat;
     background-size: auto;
 }
 #ch3{
-    background-image: url(http://www.facetheforce.today/darthvader/200);
+    background-image: url('http://www.facetheforce.today/darthvader/200');
     background-repeat: no-repeat;
     background-size: auto;
 }
 #ch4{
-    background-image: url(http://www.facetheforce.today/palpatine/200);
+    background-image: url('http://www.facetheforce.today/palpatine/200');
     background-repeat: no-repeat;
     background-size: auto;
 }
