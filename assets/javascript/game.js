@@ -286,7 +286,7 @@ function atack(){
             console.log(" the dead enemies"+deadEnemies); 
             postBattleSetUp();
             
-        }
+        }//todo else
 
         //todo finish the other aspects of the battle       
     })   
