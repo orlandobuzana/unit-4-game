@@ -286,7 +286,9 @@ function atack(){
             console.log(" the dead enemies"+deadEnemies); 
             postBattleSetUp();
             
-        }//todo else
+        }else if(deadEnemies.length >= 3){
+            gameOver();
+        }
 
         //todo finish the other aspects of the battle       
     })   
@@ -297,6 +299,7 @@ function atack(){
 function gameOver(){
     console.log("Game Over");
     resetStatus();
+    displayPlayers();
 
 }
 

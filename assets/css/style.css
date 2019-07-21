@@ -1,5 +1,5 @@
 body{
-    background-image: url("/assets/images/page-bkgr.jpg");
+    background-image: url('../images/page-bkgr.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -12,22 +12,22 @@ header{
     background-size: 100%;
 }
 #ch1{
-    background-image: url('/assets/images/luke.jpg');
+    background-image: url('../images/luke.jpg');
     background-repeat: no-repeat;
     background-size: auto;
 }
 #ch2{
-    background-image: url('/assets/images/yoda.jpg');
+    background-image: url('../images/yoda.jpg');
     background-repeat: no-repeat;
     background-size: auto;
 }
 #ch3{
-    background-image: url('/assets/images/vader.jpg');
+    background-image: url('../images/vader.jpg');
     background-repeat: no-repeat;
     background-size: auto;
 }
 #ch4{
-    background-image: url('/assets/images/palpi.jpg');
+    background-image: url('../images/palpi.jpg');
     background-repeat: no-repeat;
     background-size: auto;
 }
